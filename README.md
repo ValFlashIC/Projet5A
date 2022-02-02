@@ -11,4 +11,5 @@ Peixu ZHANG
 -------------------
 
 Ne pas modifier le main ! (contient le code FP-AI-VISION1 initial)
+
 Créer une branche pour chaque nouveau projet.
