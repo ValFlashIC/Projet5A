@@ -1,5 +1,0 @@
-stm32ipl_image_io.c:1184:23:writeBmpHeader	104	static
-stm32ipl_image_io.c:1309:23:saveBmp	632	static
-stm32ipl_image_io.c:1518:23:savePnm	680	static
-stm32ipl_image_io.c:1126:16:STM32Ipl_ReadImage	1800	static
-stm32ipl_image_io.c:1739:16:STM32Ipl_WriteImage	24	static
