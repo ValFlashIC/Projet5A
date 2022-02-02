@@ -9,6 +9,8 @@
 "./Application/fp_vision_test.o"
 "./Application/fp_vision_utils.o"
 "./Application/main.o"
+"./Application/network.o"
+"./Application/network_data.o"
 "./Application/sd_diskio.o"
 "./Application/stm32h7xx_hal_msp.o"
 "./Application/stm32h7xx_it.o"
