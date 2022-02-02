@@ -122,7 +122,7 @@ AppContext_TypeDef App_Context;
 
 float nn_output_buff[AI_NET_OUTPUT_SIZE] = {0};
  
-const char* output_labels[AI_NET_OUTPUT_SIZE] = {"Boissons", "Bureau", "Claviers", "Plats", "Sacs", "Tables", "Telecommandes"};
+const char* output_labels[AI_NET_OUTPUT_SIZE] = {"Not-person", "Person"};
 
 /* Private function prototypes -----------------------------------------------*/
 static void CameraCaptureBuff2LcdBuff_Copy(AppContext_TypeDef *);
