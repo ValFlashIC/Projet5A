@@ -75,6 +75,16 @@
 			<locationURI>PARENT-2-PROJECT_LOC/CM7/Src/main.c</locationURI>
 		</link>
 		<link>
+			<name>Application/network.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/CM7/Src/network.c</locationURI>
+		</link>
+		<link>
+			<name>Application/network_data.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/CM7/Src/network_data.c</locationURI>
+		</link>
+		<link>
 			<name>Application/sd_diskio.c</name>
 			<type>1</type>
 			<locationURI>PARENT-4-PROJECT_LOC/Common/CM7/Src/sd_diskio.c</locationURI>
