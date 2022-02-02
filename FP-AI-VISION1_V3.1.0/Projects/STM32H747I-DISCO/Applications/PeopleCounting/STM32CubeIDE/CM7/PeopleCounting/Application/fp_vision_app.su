@@ -1,0 +1,6 @@
+fp_vision_app.c:132:5:network_nms_comparator_out	0	static
+fp_vision_app.c:324:6:APP_Init	40	static
+fp_vision_app.c:341:6:APP_GetNextReadyFrame	16	static
+fp_vision_app.c:382:6:APP_StartNewFrameAcquisition	24	static
+fp_vision_app.c:405:6:APP_FramePreprocess	16	static
+fp_vision_app.c:431:6:APP_Postprocess	104	static
