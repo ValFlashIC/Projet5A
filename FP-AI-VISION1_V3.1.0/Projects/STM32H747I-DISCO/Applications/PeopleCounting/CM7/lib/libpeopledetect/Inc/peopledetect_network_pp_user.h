@@ -29,7 +29,7 @@
 
 /* ---------------    Can be modified by the application          ----------------- */
 /* I/O configuration examples */
-#define AI_PEOPLEDETECT_NETWORK_PP_NB_CLASSES        (1)
+#define AI_PEOPLEDETECT_NETWORK_PP_NB_CLASSES        (7)
 #define AI_PEOPLEDETECT_NETWORK_PP_NB_ANCHORS        (5)
 #define AI_PEOPLEDETECT_NETWORK_PP_GRID_WIDTH        (15)
 #define AI_PEOPLEDETECT_NETWORK_PP_GRID_HEIGHT       (15)
