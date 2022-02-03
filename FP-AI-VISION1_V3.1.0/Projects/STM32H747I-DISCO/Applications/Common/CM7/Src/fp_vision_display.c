@@ -191,7 +191,7 @@ void DISPLAY_DrawBBox(float x_center, float y_center, float width, float height)
   UTIL_LCD_DrawVLine(box_center_x, box_center_y - 5, 10, UTIL_LCD_COLOR_GREEN);
 
   /* Draw a label */
-  UTIL_LCD_DisplayStringAt(box_center_x, box_center_y+box_h-20, (uint8_t *)"Here !", CENTER_MODE);
+  UTIL_LCD_DisplayStringAt(box_center_x-30, box_y+box_h-((sFONT *)UTIL_LCD_GetFont())->Height, (uint8_t *)"Here !", LEFT_MODE);
 }
 
 /**
