@@ -233,7 +233,7 @@ static void App_Output_Display(AppContext_TypeDef *App_Context_Ptr)
 
     BSP_LCD_DrawBitmap(0, 640, 15, (uint8_t *)stlogo);
 
-    if (App_Context_Ptr->People_ContextPtr->output.nb_detect == 0)
+    /*if (App_Context_Ptr->People_ContextPtr->output.nb_detect == 0)
     {
       BSP_LCD_DrawBitmap(0, 680, 200, (uint8_t *)free_bmp);
       UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_GREEN);
@@ -251,7 +251,7 @@ static void App_Output_Display(AppContext_TypeDef *App_Context_Ptr)
       UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_RED);
       sprintf(msg, "%ld persons", App_Context_Ptr->People_ContextPtr->output.nb_detect);
       UTIL_LCD_DisplayStringAt(320, LINE(13), (uint8_t *)msg, CENTER_MODE);
-    }
+    }*/
 
     UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_WHITE);
     sprintf(msg, "%.1f fps", 1000.0F / (float)(App_Context_Ptr->Utils_ContextPtr->ExecTimingContext.Tfps));
