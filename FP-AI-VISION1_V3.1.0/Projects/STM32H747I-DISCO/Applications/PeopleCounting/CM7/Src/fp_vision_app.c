@@ -253,6 +253,12 @@ static void App_Output_Display(AppContext_TypeDef *App_Context_Ptr)
       UTIL_LCD_DisplayStringAt(320, LINE(13), (uint8_t *)msg, CENTER_MODE);
     }*/
 
+    /* Message personnel */
+    UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_YELLOW);
+    UTIL_LCD_DisplayStringAt(320, LINE(11), (uint8_t *)"Modifs", CENTER_MODE);
+    UTIL_LCD_DisplayStringAt(320, LINE(12), (uint8_t *)"from", CENTER_MODE);
+    UTIL_LCD_DisplayStringAt(320, LINE(13), (uint8_t *)"Valentin", CENTER_MODE);
+
     UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_WHITE);
     sprintf(msg, "%.1f fps", 1000.0F / (float)(App_Context_Ptr->Utils_ContextPtr->ExecTimingContext.Tfps));
     UTIL_LCD_DisplayStringAt(320, LINE(DISPLAY_FPS_LINE), (uint8_t *)msg, CENTER_MODE);
