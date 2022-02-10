@@ -1,20 +1,20 @@
+
+
 /**
   ******************************************************************************
   * @file    network.h
   * @author  AST Embedded Analytics Research Platform
-  * @date    Wed Jun  2 20:10:30 2021
+  * @date    Wed Feb  2 11:54:09 2022
   * @brief   AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2021 STMicroelectronics.
+  * Copyright (c) 2017 STMicroelectronics.
   * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
-  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   ******************************************************************************
   */
 
@@ -27,7 +27,7 @@
 
 /******************************************************************************/
 #define AI_NETWORK_MODEL_NAME          "network"
-#define AI_NETWORK_ORIGIN_MODEL_NAME   "yololc_optimized"
+#define AI_NETWORK_ORIGIN_MODEL_NAME   "yoloface"
 
 /******************************************************************************/
 #define AI_NETWORK_ACTIVATIONS_ALIGNMENT   (4)
@@ -36,40 +36,44 @@
 
 /******************************************************************************/
 #define AI_NETWORK_IN_NUM        (1)
-#define AI_NETWORK_IN { \
-  AI_BUFFER_OBJ_INIT(AI_BUFFER_FORMAT_U8, 240, 240, 3, 1, NULL), \
-}
+
+AI_DEPRECATED
+#define AI_NETWORK_IN \
+  ai_network_inputs_get(AI_HANDLE_NULL, NULL)
+
 #define AI_NETWORK_IN_SIZE { \
   AI_NETWORK_IN_1_SIZE, \
 }
 #define AI_NETWORK_IN_SIZE_BYTES { \
   AI_NETWORK_IN_1_SIZE_BYTES, \
 }
-#define AI_NETWORK_IN_1_HEIGHT      (240)
-#define AI_NETWORK_IN_1_WIDTH       (240)
+#define AI_NETWORK_IN_1_HEIGHT      (56)
+#define AI_NETWORK_IN_1_WIDTH       (56)
 #define AI_NETWORK_IN_1_CHANNEL     (3)
-#define AI_NETWORK_IN_1_SIZE        (240 * 240 * 3)
-#define AI_NETWORK_IN_1_SIZE_BYTES  (AI_NETWORK_IN_1_SIZE * 1)
+#define AI_NETWORK_IN_1_SIZE        (56 * 56 * 3)
+#define AI_NETWORK_IN_1_SIZE_BYTES  (37632)
 
 /******************************************************************************/
 #define AI_NETWORK_OUT_NUM       (1)
-#define AI_NETWORK_OUT { \
-  AI_BUFFER_OBJ_INIT(AI_BUFFER_FORMAT_FLOAT, 15, 15, 30, 1, NULL), \
-}
+
+AI_DEPRECATED
+#define AI_NETWORK_OUT \
+  ai_network_outputs_get(AI_HANDLE_NULL, NULL)
+
 #define AI_NETWORK_OUT_SIZE { \
   AI_NETWORK_OUT_1_SIZE, \
 }
 #define AI_NETWORK_OUT_SIZE_BYTES { \
   AI_NETWORK_OUT_1_SIZE_BYTES, \
 }
-#define AI_NETWORK_OUT_1_HEIGHT      (15)
-#define AI_NETWORK_OUT_1_WIDTH       (15)
-#define AI_NETWORK_OUT_1_CHANNEL     (30)
-#define AI_NETWORK_OUT_1_SIZE        (15 * 15 * 30)
-#define AI_NETWORK_OUT_1_SIZE_BYTES  (AI_NETWORK_OUT_1_SIZE * 4)
+#define AI_NETWORK_OUT_1_HEIGHT      (7)
+#define AI_NETWORK_OUT_1_WIDTH       (7)
+#define AI_NETWORK_OUT_1_CHANNEL     (18)
+#define AI_NETWORK_OUT_1_SIZE        (7 * 7 * 18)
+#define AI_NETWORK_OUT_1_SIZE_BYTES  (3528)
 
 /******************************************************************************/
-#define AI_NETWORK_N_NODES (15)
+#define AI_NETWORK_N_NODES (31)
 
 
 AI_API_DECLARE_BEGIN
@@ -95,12 +99,27 @@ AI_API_DECLARE_BEGIN
 /*!
  * @brief Get network library info as a datastruct.
  * @ingroup network
+ * @param[in] network: the handler to the network context
+ * @param[out] report a pointer to the report struct where to
+ * store network info. See @ref ai_network_report struct for details
+ * @return a boolean reporting the exit status of the API
+ */
+AI_DEPRECATED
+AI_API_ENTRY
+ai_bool ai_network_get_info(
+  ai_handle network, ai_network_report* report);
+
+
+/*!
+ * @brief Get network library report as a datastruct.
+ * @ingroup network
+ * @param[in] network: the handler to the network context
  * @param[out] report a pointer to the report struct where to
  * store network info. See @ref ai_network_report struct for details
  * @return a boolean reporting the exit status of the API
  */
 AI_API_ENTRY
-ai_bool ai_network_get_info(
+ai_bool ai_network_get_report(
   ai_handle network, ai_network_report* report);
 
 /*!
@@ -160,6 +179,40 @@ AI_API_ENTRY
 ai_bool ai_network_init(
   ai_handle network, const ai_network_params* params);
 
+/*!
+ * @brief Create and initialize a neural network (helper function)
+ * @ingroup network
+ * @details Helper function to instantiate and to initialize a network. It returns an object to handle it;
+ * @param network an opaque handle to the network context
+ * @param activations array of addresses of the activations buffers
+ * @param weights array of addresses of the weights buffers
+ * @return an error code reporting the status of the API on exit
+ */
+AI_API_ENTRY
+ai_error ai_network_create_and_init(
+  ai_handle* network, const ai_handle activations[], const ai_handle weights[]);
+
+/*!
+ * @brief Get network inputs array pointer as a ai_buffer array pointer.
+ * @ingroup network
+ * @param network an opaque handle to the network context
+ * @param n_buffer optional parameter to return the number of outputs
+ * @return a ai_buffer pointer to the inputs arrays
+ */
+AI_API_ENTRY
+ai_buffer* ai_network_inputs_get(
+  ai_handle network, ai_u16 *n_buffer);
+
+/*!
+ * @brief Get network outputs array pointer as a ai_buffer array pointer.
+ * @ingroup network
+ * @param network an opaque handle to the network context
+ * @param n_buffer optional parameter to return the number of outputs
+ * @return a ai_buffer pointer to the outputs arrays
+ */
+AI_API_ENTRY
+ai_buffer* ai_network_outputs_get(
+  ai_handle network, ai_u16 *n_buffer);
 
 /*!
  * @brief Run the network and return the output
