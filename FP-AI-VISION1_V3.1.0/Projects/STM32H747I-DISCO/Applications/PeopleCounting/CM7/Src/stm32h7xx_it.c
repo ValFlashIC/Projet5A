@@ -47,6 +47,14 @@ void NMI_Handler(void)
   */
 void HardFault_Handler(void)
 {
+	  BSP_LED_Off(LED_GREEN);
+	  BSP_LED_Off(LED_ORANGE);
+	  BSP_LED_Off(LED_RED);
+	  BSP_LED_Off(LED_BLUE);
+
+	  /* Turn LED RED on */
+	  BSP_LED_On(LED_RED);
+	  BSP_LED_On(LED_ORANGE);
   /* Go to infinite loop when Hard Fault exception occurs */
   while (1)
   {
