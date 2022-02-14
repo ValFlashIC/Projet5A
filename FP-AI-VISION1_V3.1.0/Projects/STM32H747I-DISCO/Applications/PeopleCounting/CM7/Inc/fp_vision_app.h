@@ -35,7 +35,6 @@ extern "C"
 #include "fp_vision_preproc.h"
 #include "stm32h747i_discovery_sdram.h"
 #include "stm32h747i_discovery_sd.h"
-#include "libpeopledetect.h"
   
 /* Exported types ------------------------------------------------------------*/
 typedef struct

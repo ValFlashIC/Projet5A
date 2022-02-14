@@ -61,7 +61,53 @@ int main(void)
   DISPLAY_Init(App_Context.Display_ContextPtr);
   
   /*AI init*/
-  People_Init(App_Context.People_ContextPtr);
+  //People_Init(App_Context.People_ContextPtr);
+	char buf[50];
+	int buf_len = 0;
+	ai_error ai_err;
+	ai_i32 nbatch;
+	uint32_t timestamp;
+	float y_val;
+
+	// Chunk of memory used to hold intermediate values for neural network
+	AI_ALIGNED(4) ai_u8 activations[AI_NETWORK_DATA_ACTIVATIONS_SIZE];
+
+	// Buffers used to store input and output tensors
+	AI_ALIGNED(4) ai_i8 in_data[AI_NETWORK_IN_1_SIZE_BYTES];
+	AI_ALIGNED(4) ai_i8 out_data[AI_NETWORK_OUT_1_SIZE_BYTES];
+
+	// Pointer to our model
+	ai_handle NETWORK = AI_HANDLE_NULL;
+
+	// Initialize wrapper structs that hold pointers to data and info about the
+	// data (tensor height, width, channels)
+	ai_buffer ai_input[AI_NETWORK_IN_NUM] = AI_NETWORK_IN;
+	ai_buffer ai_output[AI_NETWORK_OUT_NUM] = AI_NETWORK_OUT;
+
+	// Set working memory and get weights/biases from model
+	ai_network_params ai_params = {{{
+			AI_NETWORK_DATA_WEIGHTS(ai_network_data_weights_get()),
+			AI_NETWORK_DATA_ACTIVATIONS(activations)
+	}}};
+
+	// Set pointers wrapper structs to our data buffers
+	//ai_input[0].n_batches = 1;
+	ai_input[0].data = AI_HANDLE_PTR(in_data);
+	//ai_output[0].n_batches = 1;
+	ai_output[0].data = AI_HANDLE_PTR(out_data);
+
+	  // Create instance of neural network
+	  ai_err = ai_network_create(&NETWORK, AI_NETWORK_DATA_CONFIG);
+	  if (ai_err.type != AI_ERROR_NONE)
+	  {
+		  Error_Handler();
+	  }
+
+	  // Initialize neural network
+	  if (!ai_network_init(NETWORK, &ai_params))
+	  {
+		  Error_Handler();
+	  }
   
   /*Display Welcome Screen*/
   int is_menu = DISPLAY_WelcomeScreen(App_Context.Display_ContextPtr);
@@ -119,7 +165,25 @@ RESTART:
     /********************************************************************/
     /*************************Run People detection***********************/
     /********************************************************************/
-    People_Run(App_Context.People_ContextPtr);
+    //People_Run(App_Context.People_ContextPtr);
+
+    uint8_t* cam_frame_buff = App_Context_Ptr->Camera_ContextPtr->camera_frame_buffer;
+    //CAM_RES_WIDTH*CAM_RES_HEIGHT*RGB_565_BPP -> taille differente
+
+	  // Fill input buffer (use test value)
+	  for (uint32_t i = 0; i < AI_NETWORK_IN_1_SIZE; i++)
+	  {
+		  ((ai_float *)in_data)[i] = (ai_float)2.0f;
+	  }
+
+	  // Perform inference
+	  nbatch = ai_network_run(NETWORK, &ai_input[0], &ai_output[0]);
+	  if (nbatch != 1) {
+		  Error_Handler();
+	  }
+
+	  // Read output (predicted y) of neural network
+	  y_val = ((float *)out_data)[0];
     
     /*****************************************************/
     /**************Run post process operations************/
@@ -130,7 +194,7 @@ RESTART:
   
   if(1)
   {
-    People_Deinit();
+    //People_Deinit();
     App_Context.run_loop = 1;
     UTIL_LCD_SetFont(&Font24);
     goto RESTART;

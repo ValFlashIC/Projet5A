@@ -45,7 +45,6 @@
 									<listOptionValue builtIn="false" value="CAMERA_CAPTURE_RES=2"/>
 									<listOptionValue builtIn="false" value="PIXEL_FMT_CONV=1"/>
 									<listOptionValue builtIn="false" value="ARM_MATH_CM7"/>
-									<listOptionValue builtIn="false" value="OBJECTDETECT"/>
 									<listOptionValue builtIn="false" value="STM32IPL"/>
 									<listOptionValue builtIn="false" value="__FPU_PRESENT=1"/>
 								</option>
@@ -66,7 +65,6 @@
 									<listOptionValue builtIn="false" value="../../../../../../../Middlewares/ST/STM32_AI_Utilities/Inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Middlewares/ST/STM32_ImageProcessing_Library/Inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Middlewares/Third_Party/FatFs/src"/>
-									<listOptionValue builtIn="false" value="../../../CM7/lib/libpeopledetect/Inc"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.59708060" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -77,12 +75,10 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.538620892" name="MCU GCC Linker" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker">
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script.1644431898" name="Linker Script (-T)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.script" useByScannerDiscovery="false" value="${workspace_loc:/${ProjName}/STM32H747XIHx_FLASH_CM7_Full_Internal_Fps.ld}" valueType="string"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.libraries.1883598153" name="Libraries (-l)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.libraries" useByScannerDiscovery="false" valueType="libs">
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value=":LibPeopleDetect110_CM7_GCC.a"/>
 									<listOptionValue builtIn="false" value=":NetworkRuntime710_CM7_GCC.a"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.directories.665683053" name="Library search path (-L)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.directories" useByScannerDiscovery="false" valueType="libPaths">
 									<listOptionValue builtIn="false" value="../../../../../../../Middlewares/ST/STM32_AI_Runtime/lib"/>
-									<listOptionValue builtIn="false" value="../../../CM7/lib/libpeopledetect"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.otherflags.1902246723" name="Other flags" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.otherflags" useByScannerDiscovery="false" valueType="stringList">
 									<listOptionValue builtIn="false" value="-u _printf_float"/>

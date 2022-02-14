@@ -38,8 +38,9 @@
 #define AI_NETWORK_IN_NUM        (1)
 
 AI_DEPRECATED
-#define AI_NETWORK_IN \
-  ai_network_inputs_get(AI_HANDLE_NULL, NULL)
+#define AI_NETWORK_IN { \
+		AI_BUFFER_OBJ_INIT(AI_BUFFER_FORMAT_U8, 128, 128, 3, 1, NULL), \
+}
 
 #define AI_NETWORK_IN_SIZE { \
   AI_NETWORK_IN_1_SIZE, \
@@ -57,8 +58,9 @@ AI_DEPRECATED
 #define AI_NETWORK_OUT_NUM       (1)
 
 AI_DEPRECATED
-#define AI_NETWORK_OUT \
-  ai_network_outputs_get(AI_HANDLE_NULL, NULL)
+#define AI_NETWORK_OUT { \
+		AI_BUFFER_OBJ_INIT(AI_BUFFER_FORMAT_U8, 1, 1, 7, 1, NULL), \
+}
 
 #define AI_NETWORK_OUT_SIZE { \
   AI_NETWORK_OUT_1_SIZE, \
