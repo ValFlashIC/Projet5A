@@ -1,4 +1,0 @@
-network_data.c:12949:11:ai_network_data_activations_buffer_get	32	static
-network_data.c:12967:11:ai_network_data_weights_buffer_get	32	static
-network_data.c:12985:11:ai_network_data_weights_get	0	static
-network_data.c:13004:9:ai_network_data_params_get	32	static
