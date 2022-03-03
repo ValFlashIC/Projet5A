@@ -253,10 +253,13 @@ static void App_Output_Display(AppContext_TypeDef *App_Context_Ptr)
       UTIL_LCD_Clear(UTIL_LCD_COLOR_BLACK);
     }
 
+    sprintf(msg, "Label:");
+    UTIL_LCD_DisplayStringAt(0, LINE(DISPLAY_LABELTITLE_LINE), (uint8_t *)msg, CENTER_MODE);
+
     for (int i = 0; i < NN_TOP_N_DISPLAY; i++)
     {
       sprintf(msg, "%s %.0f%%", NN_OUTPUT_CLASS_LIST[App_Context_Ptr->ranking[i]], *((float*)(App_Context_Ptr->Ai_ContextPtr->nn_output_buffer)+i) * 100);
-      UTIL_LCD_DisplayStringAt(0, LINE(DISPLAY_TOP_N_LAST_LINE - NN_TOP_N_DISPLAY + i), (uint8_t *)msg, CENTER_MODE);
+      UTIL_LCD_DisplayStringAt(0, LINE(DISPLAY_LABEL_LINE/*DISPLAY_TOP_N_LAST_LINE - NN_TOP_N_DISPLAY + i*/), (uint8_t *)msg, CENTER_MODE);
     }
 
     sprintf(msg, "Inference: %ldms", App_Context_Ptr->nn_inference_time);

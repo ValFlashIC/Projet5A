@@ -131,11 +131,13 @@ extern const char* output_labels[];
 /**************************/
 /***LCD related defines****/
 /**************************/
-#define DISPLAY_INFER_TIME_LINE 16
-#define DISPLAY_IMG_PREPROCESS_LINE (DISPLAY_INFER_TIME_LINE + 1)
+#define DISPLAY_LABELTITLE_LINE 16
+#define DISPLAY_LABEL_LINE (DISPLAY_LABELTITLE_LINE + 2)
+#define DISPLAY_INFER_TIME_LINE 1
+#define DISPLAY_IMG_PREPROCESS_LINE (DISPLAY_LABELTITLE_LINE + 1)
 #define DISPLAY_FPS_LINE (DISPLAY_INFER_TIME_LINE + 2)
 #define DISPLAY_ACQU_MODE_LINE 19
-#define DISPLAY_TOP_N_LAST_LINE (DISPLAY_INFER_TIME_LINE - 4)
+#define DISPLAY_TOP_N_LAST_LINE (DISPLAY_LABELTITLE_LINE - 4)
 
 ///*****************************/
 ///***Buffers size definition***/
