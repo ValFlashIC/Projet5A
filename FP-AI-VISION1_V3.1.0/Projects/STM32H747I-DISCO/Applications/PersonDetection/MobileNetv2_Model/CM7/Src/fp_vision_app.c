@@ -497,7 +497,7 @@ void APP_Postprocess(AppContext_TypeDef *App_Context_Ptr)
   TestRunCtxt_Ptr->DumpFormat=DATA_FORMAT_TXT;
   TestRunCtxt_Ptr->rb_swap=0;
   TEST_Run(App_Context_Ptr->Test_ContextPtr, App_Context_Ptr->Operating_Mode);
-
+ //TODO change appcontextptr to add infos
   /**Perform ranking**/
   for (int i = 0; i < NN_OUTPUT_CLASS_NUMBER; i++)
   {

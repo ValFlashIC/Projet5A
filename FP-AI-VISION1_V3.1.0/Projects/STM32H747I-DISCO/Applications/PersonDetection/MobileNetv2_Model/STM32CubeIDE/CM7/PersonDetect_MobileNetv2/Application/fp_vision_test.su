@@ -23,13 +23,13 @@ fp_vision_test.c:379:13:UartCmd_Get_Timing_Report_Size	16	static
 fp_vision_test.c:618:13:UartCmd_Upload_Valid_Output	16	static
 fp_vision_test.c:713:13:UartCmd_Read_Camera_Register	40	static
 fp_vision_test.c:427:13:UartCmd_Upload_Validation_Report	16	static
-fp_vision_test.c:459:13:UartCmd_Upload_NonRegression_Debug_Report	16	static
+fp_vision_test.c:459:13:UartCmd_Upload_NonRegression_Debug_Report	24	static
 fp_vision_test.c:574:13:UartCmd_Trigger_Capture	16	static
 fp_vision_test.c:512:13:UartCmd_Trigger_Dump	16	static
 fp_vision_test.c:1419:13:MemoryDumpInit	104	static
 fp_vision_test.c:1591:13:OnBoardValidInit	112	static
 fp_vision_test.c:1306:13:FrameCaptureInit	40	static
-fp_vision_test.c:685:13:UartCmd_Upload_Dump_Whole_Data	16	static
+fp_vision_test.c:685:13:UartCmd_Upload_Dump_Whole_Data	24	static
 fp_vision_test.c:2408:6:TEST_Init	104	static
 fp_vision_test.c:2429:6:TEST_CmdIf_Check	24	static
 fp_vision_test.c:2467:6:TEST_MainMenu	24	static
