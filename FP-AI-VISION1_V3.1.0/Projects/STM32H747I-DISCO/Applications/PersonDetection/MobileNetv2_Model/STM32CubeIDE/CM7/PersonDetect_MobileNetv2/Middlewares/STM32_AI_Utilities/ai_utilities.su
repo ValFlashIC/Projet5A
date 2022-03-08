@@ -1,4 +1,4 @@
-ai_utilities.c:40:6:Init_DataMemoryLayout	16	static
-ai_utilities.c:97:6:Run_Preprocessing	56	static
+ai_utilities.c:40:6:Init_DataMemoryLayout	12	static
+ai_utilities.c:97:6:Run_Preprocessing	64	static
 ai_utilities.c:235:6:Image_CheckResizeMemoryLayout	16	static
 ai_utilities.c:257:6:Image_CheckPfcMemoryLayout	16	static

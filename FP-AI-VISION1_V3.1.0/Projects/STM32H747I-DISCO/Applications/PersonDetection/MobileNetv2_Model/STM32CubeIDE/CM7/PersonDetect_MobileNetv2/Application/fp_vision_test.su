@@ -34,7 +34,7 @@ fp_vision_test.c:2408:6:TEST_Init	104	static
 fp_vision_test.c:2429:6:TEST_CmdIf_Check	24	static
 fp_vision_test.c:2467:6:TEST_MainMenu	24	static
 fp_vision_test.c:2573:6:TEST_GetNextDumpInput	176	static
-fp_vision_test.c:2630:6:TEST_GetNextValidationInput	28536	static
+fp_vision_test.c:2630:6:TEST_GetNextValidationInput	37168	static
 fp_vision_test.c:2827:6:TEST_Run	400	static
 fp_vision_test.c:3110:6:TEST_PostProcess	152	static
 fp_vision_test.c:3135:6:HAL_UART_ErrorCallback	0	static
