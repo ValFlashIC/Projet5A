@@ -4,7 +4,7 @@
   ******************************************************************************
   * @file    network.h
   * @author  AST Embedded Analytics Research Platform
-  * @date    Wed Feb  2 11:54:09 2022
+  * @date    Tue Mar  8 13:28:20 2022
   * @brief   AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * @attention
@@ -27,7 +27,7 @@
 
 /******************************************************************************/
 #define AI_NETWORK_MODEL_NAME          "network"
-#define AI_NETWORK_ORIGIN_MODEL_NAME   "yoloface"
+#define AI_NETWORK_ORIGIN_MODEL_NAME   "yoloface50k2_int8"
 
 /******************************************************************************/
 #define AI_NETWORK_ACTIVATIONS_ALIGNMENT   (4)
@@ -47,11 +47,11 @@ AI_DEPRECATED
 #define AI_NETWORK_IN_SIZE_BYTES { \
   AI_NETWORK_IN_1_SIZE_BYTES, \
 }
-#define AI_NETWORK_IN_1_HEIGHT      (56)
-#define AI_NETWORK_IN_1_WIDTH       (56)
+#define AI_NETWORK_IN_1_HEIGHT      (64)
+#define AI_NETWORK_IN_1_WIDTH       (64)
 #define AI_NETWORK_IN_1_CHANNEL     (3)
-#define AI_NETWORK_IN_1_SIZE        (56 * 56 * 3)
-#define AI_NETWORK_IN_1_SIZE_BYTES  (37632)
+#define AI_NETWORK_IN_1_SIZE        (64 * 64 * 3)
+#define AI_NETWORK_IN_1_SIZE_BYTES  (49152)
 
 /******************************************************************************/
 #define AI_NETWORK_OUT_NUM       (1)
@@ -66,11 +66,11 @@ AI_DEPRECATED
 #define AI_NETWORK_OUT_SIZE_BYTES { \
   AI_NETWORK_OUT_1_SIZE_BYTES, \
 }
-#define AI_NETWORK_OUT_1_HEIGHT      (7)
-#define AI_NETWORK_OUT_1_WIDTH       (7)
+#define AI_NETWORK_OUT_1_HEIGHT      (8)
+#define AI_NETWORK_OUT_1_WIDTH       (8)
 #define AI_NETWORK_OUT_1_CHANNEL     (18)
-#define AI_NETWORK_OUT_1_SIZE        (7 * 7 * 18)
-#define AI_NETWORK_OUT_1_SIZE_BYTES  (3528)
+#define AI_NETWORK_OUT_1_SIZE        (8 * 8 * 18)
+#define AI_NETWORK_OUT_1_SIZE_BYTES  (4608)
 
 /******************************************************************************/
 #define AI_NETWORK_N_NODES (31)
