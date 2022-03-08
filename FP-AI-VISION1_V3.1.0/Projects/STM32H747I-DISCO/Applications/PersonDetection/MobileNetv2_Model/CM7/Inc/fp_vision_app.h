@@ -47,7 +47,7 @@ typedef struct
   uint32_t nn_inference_time;
   char const* nn_top1_output_class_name;
   float nn_top1_output_class_proba;
-  int ranking[NN_OUTPUT_CLASS_NUMBER];
+  int ranking[NN_OUTPUT_CLASS_NUMBER]; //FIXME false class_number
   
   /**Camera context**/
   CameraContext_TypeDef* Camera_ContextPtr;
